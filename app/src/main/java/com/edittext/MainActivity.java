@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +34,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+
+        try {
+            String bigNum = bigNumber.getText().toString();
+            String smallNum = smallNumber.getText().toString();
+
+            double big = Double.parseDouble(bigNum);
+            double small = Double.parseDouble(smallNum);
+
+            if (view.getId()==R.id.addButtonId){
+                double add = big + small;
+                result.setText("Results = " + add);
+            }
+
+            if (view.getId()==R.id.subButtonId){
+                double sum = big + small;
+                result.setText("Results = " + sum);
+            }
+
+        } catch (Exception e){
+            Toast.makeText(MainActivity.this, "Please Enter Number", Toast.LENGTH_SHORT).show();
+
+        }
+
 
 
     }
